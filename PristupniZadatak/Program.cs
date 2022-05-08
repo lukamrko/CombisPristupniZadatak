@@ -1,11 +1,25 @@
 using PristupniZadatak.Entities;
-
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
 IConfiguration configuration = builder.Configuration;
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection(AppSettings.SectionName));
 
+var myAlloSpecificOrigins = "_myAlloSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    string angularOrigin = configuration["AppSettings:AngularOrigin"];
+    Debug.WriteLine("Proba:" + angularOrigin);
+    options.AddPolicy(name: myAlloSpecificOrigins,
+        builder =>
+        {
+            builder.WithOrigins(angularOrigin)
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+        });
+});
 
 // Add services to the container.
 
