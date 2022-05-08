@@ -9,7 +9,7 @@ namespace PristupniZadatak.Models
 
         [Key]
         public string Email { get; set; } = string.Empty;
-        public string Mobilphone { get; set; } = string.Empty;
+        public string Mobilephone { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
 
         public Person(string firstname, string lastname, string email, string mobilphone, string address)
@@ -17,8 +17,11 @@ namespace PristupniZadatak.Models
             Firstname = firstname;
             Lastname = lastname;
             Email = email;
-            Mobilphone = mobilphone;
+            Mobilephone = mobilphone;
             Address = address;
         }
+
+        public Person()
+        { }
     }
 }

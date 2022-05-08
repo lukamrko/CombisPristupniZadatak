@@ -10,7 +10,7 @@ using PristupniZadatak.Data;
 namespace PristupniZadatak.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220508123931_InitalCreate")]
+    [Migration("20220508172018_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace PristupniZadatak.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Mobilphone")
+                    b.Property<string>("Mobilephone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

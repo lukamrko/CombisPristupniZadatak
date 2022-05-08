@@ -39,6 +39,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(myAlloSpecificOrigins);
+
+
 app.UseAuthorization();
 
 app.MapControllers();

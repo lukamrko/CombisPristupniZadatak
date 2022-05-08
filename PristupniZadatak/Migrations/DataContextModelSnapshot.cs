@@ -33,7 +33,7 @@ namespace PristupniZadatak.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Mobilphone")
+                    b.Property<string>("Mobilephone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

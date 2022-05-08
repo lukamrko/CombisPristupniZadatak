@@ -1,1 +1,31 @@
-<p>person works!</p>
+<div style="margin-left:3%">
+    <h1 class="display-2">Forma</h1>
+
+    <br />
+    <form>
+        <div class="mb-3">
+            <label for="inputFirstname" class="form-label">Firstname: </label>
+            <input type="text" class="form-text" id="inputFirstname" #firstName required>
+        </div>
+        <div class="mb-3">
+            <label for="inputLastName" class="form-label">Lastname: </label>
+            <input type="text" class="form-text" id="inputLastName" #lastName required>
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email: </label>
+            <input type="email" class="form-text" id="inputEmail" #email required>
+        </div>
+        <div class="mb-3">
+            <label for="inputMobilePhone" class="form-label">MobilePhone: </label>
+            <input type="text" class="form-text" id="inputMobilePhone" #mobilePhone required>
+        </div>
+        <div class="mb-3">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-text" id="inputAddress" #address required>
+        </div>
+        <div id="unos">
+            <button type="button" class="btn btn-primary" id="unos"
+                (click)="add(firstName.value, lastName.value, email.value, mobilePhone.value, address.value)">Submit</button>
+        </div>
+    </form>
+</div>

@@ -15,7 +15,7 @@ namespace PristupniZadatak.Migrations
                     Email = table.Column<string>(type: "TEXT", nullable: false),
                     Firstname = table.Column<string>(type: "TEXT", nullable: false),
                     Lastname = table.Column<string>(type: "TEXT", nullable: false),
-                    Mobilphone = table.Column<string>(type: "TEXT", nullable: false),
+                    Mobilephone = table.Column<string>(type: "TEXT", nullable: false),
                     Address = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
