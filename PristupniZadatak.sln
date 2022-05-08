@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PristupniZadatak", "Pristup
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RealFrontEnd", "RealFrontEnd\", "{C3BFB915-E2B6-4A98-9DA3-B70CA7BDA3D2}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_6230"
 		Debug.AspNetCompiler.PhysicalPath = "RealFrontEnd\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_6230\"
