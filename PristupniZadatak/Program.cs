@@ -1,4 +1,11 @@
+using PristupniZadatak.Entities;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+IConfiguration configuration = builder.Configuration;
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection(AppSettings.SectionName));
+
 
 // Add services to the container.
 
