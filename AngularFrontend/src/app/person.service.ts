@@ -25,9 +25,8 @@ export class PersonService
     return this.http.get<Person[]>(this.personUrl).pipe();
   }
 
-  addPerson(person: Person): Observable<string>
+  addPerson(person: Person): Observable<any>
   {
-    console.log(person);
-    return this.http.post<string>(this.personUrl, person, this.httpOptions).pipe();
+    return this.http.post<string>(this.personUrl, person);
   }
 }

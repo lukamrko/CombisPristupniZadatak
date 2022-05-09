@@ -9,6 +9,7 @@ import { Person } from '../person';
 })
 export class PersonComponent implements OnInit
 {
+  poruka?: string;
 
   constructor(private personService: PersonService) { }
 
@@ -21,7 +22,24 @@ export class PersonComponent implements OnInit
     if (!this.checkMail(email))
       return;
     const person: Person = new Person(firstname, lastname, email, mobilePhone, address);
-    this.personService.addPerson(person).subscribe();
+    this.personService.addPerson(person).subscribe(data =>
+    {
+      this.poruka = data.message;
+      var blok = document.getElementById('porukaAlert');
+      if (blok)
+        blok.style.display = "block";
+      setTimeout(function ()
+      {
+        if (blok)
+          blok.style.display = "none";
+        unistiPoruku();
+
+      }, 5000);
+      const unistiPoruku = () =>
+      {
+        this.poruka = "";
+      }
+    });
   }
 
   checkMail(email: string): boolean

@@ -1,0 +1,24 @@
+#porukaAlert
+{
+    display:none;
+}
+
+#porukaAlert
+{
+    animation-name:fadeInAndOut;
+    animation-duration: 5s;
+}
+
+@-webkit-keyframes fadeInAndOut {
+    0%{opacity: 0;}
+    20%{opacity: 1;}
+    70%{opacity: 1;}
+    100%{opacity:0;}
+}
+
+@keyframes fadeInAndOut {
+    0%{opacity: 0;}
+    20%{opacity: 1;}
+    70%{opacity: 1;}
+    100%{opacity:0;}
+}

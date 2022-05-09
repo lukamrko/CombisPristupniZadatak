@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PristupniZadatak", "Pristup
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AngularFrontend", "AngularFrontend\", "{3A5C6459-44DD-4B06-ACAA-B8E7BE540F61}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_7332"
 		Debug.AspNetCompiler.PhysicalPath = "AngularFrontend\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_7332\"

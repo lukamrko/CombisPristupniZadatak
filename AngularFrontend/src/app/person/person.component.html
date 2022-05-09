@@ -13,7 +13,7 @@
         </div>
         <div class="mb-3">
             <label for="inputEmail" class="form-label">Email: </label>
-            <input type="email" class="form-text" id="inputEmail" #email required>
+            <input type="email" class="form-text" id="inputEmail" required #email>
         </div>
         <div class="mb-3">
             <label for="inputMobilePhone" class="form-label">MobilePhone: </label>
@@ -28,4 +28,10 @@
                 (click)="add(firstName.value, lastName.value, email.value, mobilePhone.value, address.value)">Submit</button>
         </div>
     </form>
+    <div id="porukaAlert">
+        <div class="alert alert-dark" role="alert">
+            {{poruka}}
+        </div>
+    </div>
+
 </div>

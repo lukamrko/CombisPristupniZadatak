@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using PristupniZadatak.Data;
 using PristupniZadatak.Entities;
 using PristupniZadatak.Models;
+using System.Diagnostics;
 
 namespace PristupniZadatak.Controllers
 {
@@ -20,31 +21,32 @@ namespace PristupniZadatak.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Person>>> GetEverybody()
+        public async Task<List<Person>> GetEverybody()
         {
             List<Person> osobe = new List<Person>();
             using (var db = new DataContext(_appSettings))
                 osobe = await db.People.ToListAsync();
-            return Ok(osobe);
+            return osobe;
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddPerson(Person osoba)
+        public async Task<Poruka> AddPerson(Person osoba)
         {
-            ActionResult ac = Ok();
+            string poruka = "Succesfully added person!";
             using (var db = new DataContext(_appSettings))
             {
                 try
                 {
                     await db.AddAsync(osoba);
+                    await db.SaveChangesAsync();
                 }
                 catch (Exception ex)
                 {
-                    ac = BadRequest(ex);
+                    Debug.WriteLine("KONTROLER:"+ex.Message);
+                    poruka = ex.Message;
                 }
-                await db.SaveChangesAsync();
             }
-            return ac;
+            return new Poruka(poruka);
         }
 
     }
