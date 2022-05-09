@@ -24,27 +24,36 @@ export class PersonComponent implements OnInit
     const person: Person = new Person(firstname, lastname, email, mobilePhone, address);
     this.personService.addPerson(person).subscribe(data =>
     {
-      this.poruka = data.message;
-      var blok = document.getElementById('porukaAlert');
-      if (blok)
-        blok.style.display = "block";
-      setTimeout(function ()
-      {
-        if (blok)
-          blok.style.display = "none";
-        unistiPoruku();
-
-      }, 5000);
-      const unistiPoruku = () =>
-      {
-        this.poruka = "";
-      }
+      this.ispisiPoruku(data.message);
     });
   }
 
   checkMail(email: string): boolean
   {
-    return true;
+    let regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (regex.test(email))
+      return true;
+    this.ispisiPoruku("Email isn't in correct format. Please fix it then continue!;");
+    return false;
+  }
+
+  ispisiPoruku(poruka: string): void
+  {
+    this.poruka = poruka;
+    var blok = document.getElementById('porukaAlert');
+    if (blok)
+      blok.style.display = "block";
+    setTimeout(function ()
+    {
+      if (blok)
+        blok.style.display = "none";
+      unistiPoruku();
+
+    }, 5000);
+    const unistiPoruku = () =>
+    {
+      this.poruka = "";
+    }
   }
 
 }
