@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import launchSettingsJson from '../../../PristupniZadatak/Properties/launchSettings.json';
+
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -11,7 +13,7 @@ import { Person } from './person';
 })
 export class PersonService
 {
-  private personUrl = 'https://localhost:7265/People';
+  private personUrl = this.loadUrl();
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,5 +30,12 @@ export class PersonService
   addPerson(person: Person): Observable<any>
   {
     return this.http.post<string>(this.personUrl, person);
+  }
+
+  loadUrl(): string
+  {
+    var allURLs: string = launchSettingsJson.profiles.PristupniZadatak.applicationUrl;
+    let URLs: string[] = allURLs.split(';');
+    return URLs[0] + '/People';
   }
 }

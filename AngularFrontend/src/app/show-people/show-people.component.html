@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>Contacts</h2>
+<mat-dialog-content>
+    <div *ngIf="kontaktiUcitani">
+        <table class="table table-striped">
+            <thead>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>MobilePhone</th>
+                <th>Address</th>
+            </thead>
+            <ng-container *ngFor="let person of people|async">
+                <tr>
+                    <td>{{person.firstname}}</td>
+                    <td>{{person.lastname}}</td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.mobilephone}}</td>
+                    <td>{{person.address}}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </div>
+
+</mat-dialog-content>

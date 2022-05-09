@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonService } from '../person.service';
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { ShowPeopleComponent } from '../show-people/show-people.component';
 import { Person } from '../person';
 
 @Component({
@@ -11,11 +13,28 @@ export class PersonComponent implements OnInit
 {
   poruka?: string;
 
-  constructor(private personService: PersonService) { }
+  constructor(
+    private personService: PersonService,
+    public dialog: MatDialog
+  ) { }
+
+  openDialog()
+  {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "80%";
+
+    this.dialog.open(ShowPeopleComponent, dialogConfig);
+  }
+
+
 
   ngOnInit(): void
   {
   }
+
 
   add(firstname: string, lastname: string, email: string, mobilePhone: string, address: string): void
   {
@@ -35,17 +54,17 @@ export class PersonComponent implements OnInit
   {
     if (!person.firstname)
     {
-      this.ispisiPoruku("First name is required field! Please fix it then continue!")
+      this.ispisiPoruku("First name is required field! Please fix it and then continue!")
       return false;
     }
     if (!person.lastname)
     {
-      this.ispisiPoruku("Last name is required field! Please fix it then continue!")
+      this.ispisiPoruku("Last name is required field! Please fix it and then continue!")
       return false;
     }
     if (!person.email)
     {
-      this.ispisiPoruku("Email is required field! Please fix it then continue!")
+      this.ispisiPoruku("Email is required field! Please fix it and then continue!")
       return false;
     }
     return true;
@@ -56,7 +75,7 @@ export class PersonComponent implements OnInit
     let regex = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     if (regex.test(email))
       return true;
-    this.ispisiPoruku("Email isn't in correct format. Please fix it then continue!;");
+    this.ispisiPoruku("Email isn't in correct format. Please fix it and then continue!;");
     return false;
   }
 
