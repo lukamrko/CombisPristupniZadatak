@@ -19,13 +19,36 @@ export class PersonComponent implements OnInit
 
   add(firstname: string, lastname: string, email: string, mobilePhone: string, address: string): void
   {
+    const person: Person = new Person(firstname, lastname, email, mobilePhone, address);
+    if (!this.checkRequiredFields(person))
+      return;
     if (!this.checkMail(email))
       return;
-    const person: Person = new Person(firstname, lastname, email, mobilePhone, address);
     this.personService.addPerson(person).subscribe(data =>
     {
       this.ispisiPoruku(data.message);
     });
+  }
+
+
+  checkRequiredFields(person: Person): boolean
+  {
+    if (!person.firstname)
+    {
+      this.ispisiPoruku("First name is required field! Please fix it then continue!")
+      return false;
+    }
+    if (!person.lastname)
+    {
+      this.ispisiPoruku("Last name is required field! Please fix it then continue!")
+      return false;
+    }
+    if (!person.email)
+    {
+      this.ispisiPoruku("Email is required field! Please fix it then continue!")
+      return false;
+    }
+    return true;
   }
 
   checkMail(email: string): boolean
